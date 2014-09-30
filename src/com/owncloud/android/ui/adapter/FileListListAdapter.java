@@ -111,6 +111,10 @@ public class FileListListAdapter extends BaseAdapter implements ListAdapter {
             OCFile file = mFiles.get(position);
             TextView fileName = (TextView) view.findViewById(R.id.Filename);
             String name = file.getFileName();
+            
+            if(name.endsWith(".SyncID") || name.endsWith(".SyncIgnore") || name.endsWith(".SyncArchive")){
+              return view;
+            }
 
             fileName.setText(name);
             ImageView fileIcon = (ImageView) view.findViewById(R.id.imageView1);
