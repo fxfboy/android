@@ -639,6 +639,10 @@ public class FileDataStorageManager {
         if (c.moveToFirst()) {
             do {
                 OCFile child = createFileInstance(c);
+                String name = child.getFileName();
+                if(name.endsWith(".SyncID") || name.endsWith(".SyncIgnore") || name.endsWith(".SyncArchive")){
+                    continue;
+                }
                 ret.add(child);
             } while (c.moveToNext());
         }
